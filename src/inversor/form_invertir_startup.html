@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../styles.css">
+</head>
+<body>
+
+    <h1>Invertir en startup</h1>
+    <hr class="hr5">
+    <form action="invertir_startup.php" method="POST">
+        <label for="idStartup">ID de la startup:</label>
+        <input type="text" name="idStartup" id="idStartup" readonly>
+        <label for="cantidad">Cantidad a invertir:</label>
+        <input type="number" name="cantidad" id="cantidad" required>
+        <input type="submit" value="Invertir">
+    </form>
+
+
+    <script>
+        const params =  new URLSearchParams(window.location.search);
+        const idStartup = params.get('idStartup');
+        document.getElementById('idStartup').value = idStartup;
+
+        
+
+    </script>
+    
+</body>
+</html>

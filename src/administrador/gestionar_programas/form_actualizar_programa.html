@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+
+    <h1>Actualizar programa</h1>
+
+    <form action="actualizar_programa.php" method="post">
+        <input type="hidden" name="idPrograma" id="idPrograma">
+        <label for="nombrePrograma">Nombre</label>
+        <input type="text" name="nombrePrograma" id="nombrePrograma">
+        <br>
+
+        <label for="tipo">Tipo</label>
+        <input type="text" name="tipo" id="tipo">
+        <br>
+
+        <label for="descripcion">Descripción</label>
+        <input type="text" name="descripcion" id="descripcion">
+        <br>
+
+        <label for="duracion">duracion</label>
+        <input type="text" name="duracion" id="duracion">
+        <br>
+
+        <input type="submit" value="Actualizar">
+    </form>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const idPrograma = params.get('idPrograma');
+        const nombrePrograma = params.get('nombrePrograma');
+        const tipo = params.get('tipo');
+        const descripcion = params.get('descripcion');
+        const duracion = params.get('duracion');
+        document.getElementById('idPrograma').value = idPrograma;
+        document.getElementById('nombrePrograma').value = nombrePrograma;
+        document.getElementById('tipo').value = tipo;
+        document.getElementById('descripcion').value = descripcion;
+        document.getElementById('duracion').value = duracion;
+    </script>
+    
+</body>
+</html>

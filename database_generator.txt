@@ -1,0 +1,128 @@
+Database Template
+
+SQL Configuration Commands
+Entrar en MySQL: mysql -u root 
+Crear base de datos: CREATE DATABASE startupBoost;
+Crear usuario: CREATE USER 'system_manager'@'127.0.0.1' IDENTIFIED BY '12345';
+Dar permisos al usuario: GRANT ALL PRIVILEGES ON startupBoost.* TO 'system_manager'@'127.0.0.1';
+Cambiar autenticación (eliminar encriptación): ALTER USER 'system_manager'@'127.0.0.1' IDENTIFIED WITH 'mysql_native_password' BY '12345';
+Usar base de datos: USE startupBoost;
+Salir de MySQL: exit;
+
+Creación de tablas:
+CREATE TABLE Programa(
+    idPrograma INT NOT NULL AUTO_INCREMENT,
+    nombrePrograma VARCHAR(50) NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(200) NOT NULL,
+    duracion INT NOT NULL,
+    PRIMARY KEY(idPrograma)
+);
+CREATE TABLE Programa_startup(
+    idPrograma INT NOT NULL,
+    idStartup INT NOT NULL,
+    PRIMARY KEY(idPrograma, idStartup),
+    FOREIGN KEY(idPrograma) REFERENCES Programa(idPrograma),
+    FOREIGN KEY(idStartup) REFERENCES Startup(idStartup)
+);
+CREATE TABLE Inversion(
+    idStartup INT NOT NULL,
+    idInversor INT NOT NULL,
+    cantidad INT NOT NULL,
+    PRIMARY KEY(idStartup, idInversor),
+    FOREIGN KEY(idStartup) REFERENCES Startup(idStartup),
+    FOREIGN KEY(idInversor) REFERENCES Inversor(idInversor)
+);
+CREATE TABLE Inversor(
+    idInversor INT NOT NULL AUTO_INCREMENT,
+    nombreInversor VARCHAR(50) NOT NULL,
+    correo VARCHAR(50) NOT NULL,
+    tlf VARCHAR(50) NOT NULL,
+    PRIMARY KEY(idInversor)
+);
+CREATE TABLE Evento(
+    idEvento INT NOT NULL AUTO_INCREMENT,
+    nombreEvento VARCHAR(50) NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(200) NOT NULL,
+    fechaIni DATE NOT NULL,
+    fechaFin DATE NOT NULL,
+    plazas INT NOT NULL,
+    ubicacion VARCHAR(50) NOT NULL,
+    sala VARCHAR(50) NOT NULL,
+    PRIMARY KEY(idEvento)
+);
+CREATE TABLE Startup(
+    idStartup INT NOT NULL AUTO_INCREMENT,
+    nombreStartup VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(200) NOT NULL,
+    sector VARCHAR(50) NOT NULL,
+    estado VARCHAR(50) NOT NULL,
+    correo VARCHAR(50) NOT NULL,
+    tlf VARCHAR(50) NOT NULL,
+    idMentor INT,
+    PRIMARY KEY(idStartup),
+    FOREIGN KEY(idMentor) REFERENCES Mentor(idMentor) ON DELETE SET NULL
+);
+CREATE TABLE Mentor(
+    idMentor INT NOT NULL AUTO_INCREMENT,
+    nombreMentor VARCHAR(50) NOT NULL,
+    especialidad VARCHAR(50) NOT NULL,
+    experiencia VARCHAR(200) NOT NULL,
+    correo VARCHAR(50) NOT NULL,
+    tlf VARCHAR(50) NOT NULL,
+    PRIMARY KEY(idMentor)
+);
+
+CREATE TABLE Startup_Evento(
+    idStartup INT NOT NULL,
+    idEvento INT NOT NULL,
+    PRIMARY KEY(idStartup, idEvento),
+    FOREIGN KEY(idStartup) REFERENCES Startup(idStartup),
+    FOREIGN KEY(idEvento) REFERENCES Evento(idEvento)
+);
+CREATE TABLE Inversor_Evento(
+    idInversor INT NOT NULL,
+    idEvento INT NOT NULL,
+    PRIMARY KEY(idInversor, idEvento),
+    FOREIGN KEY(idInversor) REFERENCES Inversor(idInversor),
+    FOREIGN KEY(idEvento) REFERENCES Evento(idEvento)
+);
+
+CREATE TABLE Convocatoria (
+    idConvocatoria INT PRIMARY KEY AUTO_INCREMENT,
+    fechaIniConvocatoria DATE NOT NULL,
+    fechaFinConvocatoria DATE NOT NULL,
+    descripcion VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Subvencion (
+    idConvocatoria INT,
+    idStartup INT,
+    Cantidad DECIMAL(10, 2) NOT NULL,
+    fechaConcesion DATE,
+    PRIMARY KEY (idConvocatoria, idStartup),
+    FOREIGN KEY (idConvocatoria) REFERENCES Convocatoria(idConvocatoria),
+    FOREIGN KEY (idStartup) REFERENCES Startup(idStartup)
+);
+
+CREATE TABLE Evaluacion (
+    idEvaluacion INT PRIMARY KEY AUTO_INCREMENT,
+    comentario VARCHAR(255),
+    resultado VARCHAR(50),
+    idStartup INT,
+    FOREIGN KEY (idStartup) REFERENCES Startup(idStartup) 
+);
+
+CREATE TABLE SesionMentoria (
+    idSesion INT PRIMARY KEY AUTO_INCREMENT,
+    fechaSesion DATE,
+    objetivos VARCHAR(255),
+    resultado VARCHAR(50),
+    idStartup INT,
+    FOREIGN KEY (idStartup) REFERENCES Startup(idStartup) 
+);
+
+
+
+

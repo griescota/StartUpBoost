@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../styles.css">
+</head>
+<body class="degradado">
+    
+    <h1 class="tituloDegradado">Opciones de administrador</h1>
+    <hr>
+
+    <div class="listadoOpciones">
+        <h2 class="tituloDegradado">Registros</h2>
+        <button onclick="redirect('gestionar_mentores/form_intro_datos_mentor.html')" class="opcion">Nuevo mentor</button>
+        <button onclick="redirect('gestionar_inversores/form_intro_datos_inversor.html')" class="opcion">Nuevo inversor</button>
+        <button onclick="redirect('gestionar_programas/form_intro_datos_programa.html')" class="opcion">Nuevo programa</button>
+        <button onclick="redirect('gestionar_eventos/form_nuevo_evento.html')" class="opcion">Nuevo evento</button>
+        <hr class="hr3">
+        <h2 class="tituloDegradado">Listados</h2>
+        <button onclick="redirect('gestionar_mentores/listado_mentores.php')" class="opcion">Mentores</button>
+        <button onclick="redirect('gestionar_inversores/listado_inversores.php')" class="opcion">Inversores</button>
+        <button onclick="redirect('gestionar_programas/listado_programas.php')" class="opcion">Programas</button>
+        <button onclick="redirect('gestionar_eventos/listado_eventos.php')" class="opcion">Eventos</button>
+        <hr class="hr3">
+        <h2 class="tituloDegradado">Gestion de startups</h2>
+        <button onclick="redirect('validar_startup/listado_startups_validar.php')" class="opcion">Validar startups</button>
+        <button onclick="redirect('asignar_mentor/listado_mentores_asignar.php')" class="opcion">Asignar mentor</button>
+    </div>
+    
+    <div>
+        <a href="../login_form.html" class="p1">Aceleradora de Startups</a> 
+        <p class="p1">Ingeniería del Software Web</p>
+     </div>
+
+    <script>
+        function redirect(page) {
+            window.location.href = page;
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../styles.css">
+</head>
+<body>
+
+    <h1>Evaluacion de startup</h1>
+    <hr class="hr4">
+
+    <table>
+        <tr>
+            <th>ID de la startup</th>
+            <th>Nombre de la startup</th>
+            <th>Descripcion</th>
+            <th>Sector</th>
+            <th>Estado</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="idStartup" id="idStartupTable" readonly></td>
+            <td><input type="text" name="nombreStartup" id="nombreStartup" readonly></td>
+            <td><input type="text" name="descripcion" id="descripcion" readonly></td>
+            <td><input type="text" name="sector" id="sector" readonly></td>
+            <td><input type="text" name="estado" id="estado" readonly></td>
+            <td><input type="text" name="correo" id="correo" readonly></td>
+            <td><input type="text" name="tlf" id="tlf" readonly></td>
+        </tr>
+    </table>
+
+    <form action="añadir_evaluacion.php" method="post">
+
+        <input type="hidden" name="idStartup" id="idStartupForm">
+
+        <label for="comentario">Comentario</label>
+        <input type="text" name="comentario" id="comentario" required>
+
+        <label for="resultado">Resultado</label>
+        <input type="text" name="resultado" id="resultado" required>
+
+        <input type="submit" value="Enviar">
+
+    </form>
+
+    <script>
+        const params =  new URLSearchParams(window.location.search);
+        const idStartup = params.get('idStartup');
+        const nombreStartup = params.get('nombreStartup');
+        const descripcion = params.get('descripcion');
+        const sector = params.get('sector');
+        const estado = params.get('estado');
+        const correo = params.get('correo');
+        const tlf = params.get('tlf');
+        document.getElementById('idStartupTable').value = idStartup;
+        document.getElementById('idStartupForm').value = idStartup;
+        document.getElementById('nombreStartup').value = nombreStartup;
+        document.getElementById('descripcion').value = descripcion;
+        document.getElementById('sector').value = sector;
+        document.getElementById('estado').value = estado;
+        document.getElementById('correo').value = correo;
+        document.getElementById('tlf').value = tlf;
+    </script>
+    
+</body>
+</html>

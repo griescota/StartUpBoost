@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justificante de Inscripción</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+    <h1>Justificante de Inscripción</h1>
+    <p><span id="nombreInversor"></span> se ha inscrito en el evento  <span id="nombreEvento"></span>.</p>
+    <button onclick="">Enviar por Correo</button>
+    <button onclick="window.location.href='listado_eventos.php'">Volver al Listado de Eventos</button>
+    <script>
+        function obtenerParametros() {
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById('nombreInversor').textContent = params.get('nombreInversor');
+            document.getElementById('nombreEvento').textContent = params.get('nombreEvento');
+        }
+
+        window.onload = obtenerParametros;
+    </script>
+</body>
+</html>

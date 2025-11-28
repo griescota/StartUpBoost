@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+    <h1>Formulario registro inversor</h1>
+
+    
+    <form action="alta_inversor.php" method="post" id="formRegistroInversor"
+        display="flex"
+        >
+        <label for="nombreInversor">Nombre</label>
+        <input type="text" name="nombreInversor" id="nombreInversor">
+
+        <label for="correo">Correo</label>
+        <input type="text" name="correo" id="correo">
+
+        <label for="tlf">Teléfono</label>
+        <input type="text" name="tlf" id="tlf">
+
+        <input type="submit" value="Enviar">
+        
+    </form>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var errores = urlParams.get('error');
+            if (errores) {
+                alert("Error: " + errores);
+            }
+        });
+
+    </script>
+
+</body>
+</html>

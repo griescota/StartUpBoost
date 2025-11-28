@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+    <h1>Formulario registro evento</h1>
+    
+    <form action="alta_evento.php" method="post">
+        <label for="nombreEvento">Nombre</label>
+        <input type="text" name="nombreEvento" id="nombreEvento">
+
+        <label for="tipo">Tipo</label>
+        <input type="text" name="tipo" id="tipo">
+
+        <label for="descripcion">Descripción</label>
+        <input type="text" name="descripcion" id="descripcion">
+
+        <label for="fechaIni">Fecha inicio</label>
+        <input type="date" name="fechaIni" id="fechaIni">
+
+        <label for="fechaFin">Fecha fin</label>
+        <input type="date" name="fechaFin" id="fechaFin">
+
+        <label for="plazas">Plazas</label>
+        <input type="number" name="plazas" id="plazas">
+
+        <label for="ubicacion">Ubicación</label>
+        <input type="text" name="ubicacion" id="ubicacion">
+
+        <label for="sala" >Sala</label>
+        <input type="text" name="sala" id="sala">
+
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+    <h1>Validar startup</h1>
+    <hr class="hr5">
+    <form action="validar_startup.php" method="post">
+        <!--Puede aceptar o rechazar-->
+        <input type="text" name="idStartup" id="idStartup" readonly>
+        <label for="nombreStartup">Nombre de la startup</label>
+        <input type="text" name="nombreStartup" id="nombreStartup" readonly>
+        <label for="descripcion">Descripción</label>
+        <input type="text" name="descripcion" id="descripcion" readonly>
+        <label for="sector">Sector</label>
+        <input type="text" name="sector" id="sector" readonly>
+        <label for="estado">Estado</label>
+        <input type="text" name="estado" id="estado" readonly>
+        <label for="correo">Correo</label>
+        <input type="text" name="correo" id="correo" readonly>
+        <label for="tlf">Teléfono</label>
+        <input type="text" name="tlf" id="tlf" readonly>
+        
+        <input type="submit" value="Aceptar" name="aceptar">
+        <input class="varianteBoton" type="submit" value="Rechazar" name="rechazar">
+    </form>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const idStartup = params.get('idStartup');
+        const nombreStartup = params.get('nombreStartup');
+        const descripcion = params.get('descripcion');
+        const sector = params.get('sector');
+        const estado = params.get('estado');
+        const correo = params.get('correo');
+        const tlf = params.get('tlf');
+        document.getElementById('idStartup').value = idStartup;
+        document.getElementById('nombreStartup').value = nombreStartup;
+        document.getElementById('descripcion').value = descripcion;
+        document.getElementById('sector').value = sector;
+        document.getElementById('estado').value = estado;
+        document.getElementById('correo').value = correo;
+        document.getElementById('tlf').value = tlf;
+    </script>
+    
+</body>
+</html>

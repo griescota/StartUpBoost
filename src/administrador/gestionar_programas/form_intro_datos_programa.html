@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+    <h1>Formulario registro programa</h1>
+
+    
+    <form action="./alta_programa.php" method="post" id="formRegistroMentor"
+        display="flex"
+        >
+        <label for="nombrePrograma">Nombre</label>
+        <input type="text" name="nombrePrograma" id="nombrePrograma">
+
+        <label for="tipo">Tipo</label>
+        <input type="text" name="tipo" id="tipo">
+
+        <label for="descripcion">Descripción</label>
+        <input type="text" name="descripcion" id="descripcion">
+
+        <label for="duracion">Duración</label>
+        <input type="number" name="duracion" id="duracion">
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var errores = urlParams.get('error');
+            if (errores) {
+                alert("Error: " + errores);
+            }
+        });
+
+    </script>
+
+</body>
+</html>

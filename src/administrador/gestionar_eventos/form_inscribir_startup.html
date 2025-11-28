@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+    <h1>Inscribir startup</h1>
+
+    <form action="inscribir_startup.php" method="post">
+
+        <input type="hidden" name="idEvento" id="idEvento">
+
+        <label for="idStartup">ID de startup</label>
+        <input type="number" name="idStartup" id="idStartup">
+
+        <input type="submit" value="Inscribir">
+        <input type="button" value="Cancelar" onclick="window.location.href='listado_eventos.php'">
+
+    </form>
+
+
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+        const idEvento = params.get('idEvento');
+        document.getElementById('idEvento').value = idEvento;
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+    <h1>Formulario registro mentor</h1>
+    
+    <form action="./alta_mentor.php" method="post" id="formRegistroMentor"
+        display="flex"
+        >
+        <label for="nombreMentor">Nombre</label>
+        <input type="text" name="nombreMentor" id="nombreMentor">
+
+        <label for="especialidad">Especialidad</label>
+        <input type="text" name="especialidad" id="especialidad">
+
+        <label for="experiencia">Experiencia</label>
+        <input type="text" name="experiencia" id="experiencia">
+
+        <label for="correo">Correo</label>
+        <input type="text" name="correo" id="correo">
+
+        <label for="tlf">Teléfono</label>
+        <input type="text" name="tlf" id="tlf">
+
+        <input type="submit" value="Enviar">
+        
+    </form>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var errores = urlParams.get('error');
+            console.log("Errores:", errores);
+            if (errores) {
+                alert("Error: " + errores);
+            }
+        });
+
+
+    </script>
+
+</body>
+</html>

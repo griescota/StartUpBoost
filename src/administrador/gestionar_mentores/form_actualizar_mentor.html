@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+
+    <h1>Actualizar mentor</h1>
+
+    <form action="actualizar_mentor.php" method="post">
+        <input type="hidden" name="idMentor" id="idMentor">
+        <label for="nombreMentor">Nombre</label>
+        <input type="text" name="nombreMentor" id="nombreMentor">
+        <br>
+
+        <label for="especialidad">Especialidad</label>
+        <input type="text" name="especialidad" id="especialidad">
+        <br>
+
+        <label for="experiencia">Experiencia</label>
+        <input type="text" name="experiencia" id="experiencia">
+        <br>
+
+        <label for="correo">Correo</label>
+        <input type="text" name="correo" id="correo">
+        <br>
+
+        <label for="tlf">Teléfono</label>
+        <input type="text" name="tlf" id="tlf">
+        <br>
+
+        <input type="submit" value="Actualizar">
+    </form>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const idMentor = params.get('idMentor');
+        const nombreMentor = params.get('nombreMentor');
+        const especialidad = params.get('especialidad');
+        const experiencia = params.get('experiencia');
+        const correo = params.get('correo');
+        const tlf = params.get('tlf');
+        document.getElementById('idMentor').value = idMentor;
+        document.getElementById('nombreMentor').value = nombreMentor;
+        document.getElementById('especialidad').value = especialidad;
+        document.getElementById('experiencia').value = experiencia;
+        document.getElementById('correo').value = correo;
+        document.getElementById('tlf').value = tlf;
+    </script>
+    
+</body>
+</html>
+

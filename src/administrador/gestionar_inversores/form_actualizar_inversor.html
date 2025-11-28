@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+</head>
+<body>
+
+    <h1>Actualizar inversor</h1>
+    <hr class="hr4">
+
+    <form action="actualizar_inversor.php" method="post">
+        <input type="hidden" name="idInversor" id="idInversor">
+        <label for="nombreInversor">Nombre</label>
+        <input type="text" name="nombreInversor" id="nombreInversor">
+        <br>
+
+        <label for="correo">Correo</label>
+        <input type="text" name="correo" id="correo">
+        <br>
+
+        <label for="tlf">Teléfono</label>
+        <input type="text" name="tlf" id="tlf">
+        <br>
+
+        <input type="submit" value="Actualizar">
+    </form>
+    
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const idInversor = params.get('idInversor');
+        const nombreInversor = params.get('nombreInversor');
+        const correo = params.get('correo');
+        const tlf = params.get('tlf');
+        document.getElementById('idInversor').value = idInversor;
+        document.getElementById('nombreInversor').value = nombreInversor;
+        document.getElementById('correo').value = correo;
+        document.getElementById('tlf').value = tlf;
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../styles.css">
+</head>
+<body>
+
+    <h1>Asignar mentor</h1>
+    <hr class="hr4">
+
+    <form action="asignar_mentor.php" method="POST" class="formulario">
+        <label for="idStartup">ID de startup</label>
+        <input type="text" name="idStartup" id="idStartup" readonly>
+        <label for="idMentor">ID de mentor</label>
+        <input type="text" name="idMentor" id="idMentor" readonly>
+        <input type="submit" value="Asignar">
+    </form>
+
+
+    <script>
+        const params =  new URLSearchParams(window.location.search);
+        const idStartup = params.get('idStartup');
+        const idMentor = params.get('idMentor');
+        document.getElementById('idStartup').value = idStartup;
+        document.getElementById('idMentor').value = idMentor;
+    </script>
+    
+</body>
+</html>
+

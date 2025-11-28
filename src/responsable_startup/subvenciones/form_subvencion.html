@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../styles.css">
+</head>
+<body>
+
+    <h1>Inscripcion a subvencion</h1>
+    <hr class="hr4">
+    <table>
+        <tr>
+            <th>Fecha de inicio</th>
+            <th>Fecha de final</th>
+            <th>Descripcion</th>
+        </tr>
+        <tr>
+            <td id="fechaIniConvocatoria"></td>
+            <td id="fechaFinConvocatoria"></td>
+            <td id="descripcion"></td>
+        </tr>
+    </table>
+
+    <form action="añadir_subvencion.php" method="post">
+            
+            <input type="hidden" name="idConvocatoria" id="idConvocatoria">
+
+            <label for="cantidad">Cantidad a solicitar</label>
+            <input type="number" name="cantidad" id="cantidad" required>
+
+            <input type="submit" value="Solicitar">
+    </form>
+
+        
+
+    <script>
+        const params =  new URLSearchParams(window.location.search);
+        const idConvocatoria = params.get('idConvocatoria');
+        const fechaInicio = params.get('fechaIniConvocatoria');
+        const fechaFinal = params.get('fechaFinConvocatoria');
+        const descripcion = params.get('descripcion');
+        document.getElementById('idConvocatoria').value = idConvocatoria;
+        document.getElementById('fechaIniConvocatoria').value = fechaInicio;
+        document.getElementById('fechaFinConvocatoria').value = fechaFinal;
+        document.getElementById('descripcion').value = descripcion;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var errores = urlParams.get('error');
+            if (errores) {
+                alert("Error: " + errores);
+            }
+        });
+       
+    </script>
+    
+</body>
+</html>

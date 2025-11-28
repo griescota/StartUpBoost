@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../styles.css">
+</head>
+<body class="degradado">
+    <h1 class="tituloDegradado">StartupBoost</h1>
+
+    <hr class="hr2">
+
+    <form action="login.php" method="post">
+        <label for="tipoUsuario">Tipo de usuario</label>
+        <select name="tipoUsuario" id="tipoUsuario">
+            <option value="administrador">Administrador</option>
+            <option value="responsable_startup">Responsable de startup</option>
+            <option value="inversor">Inversor</option>
+            <option value="mentor">Mentor</option>
+        </select>
+
+        <label for="idUsuario">ID de usuario</label>
+        <input type="number" name="idUsuario" id="idUsuario">
+
+        <input type="submit" value="Iniciar sesion">
+
+    </form>
+
+    <a class=boton-registro href="./responsable_startup/registrar_startup/form_intro_datos_startup.html" class="p1">Registrarse</a>
+    
+    
+
+    <div class="marca">
+        <a href="login_form.html" class="p1">Aceleradora de Startups</a>
+        <p class="p1">Ingeniería del Software Web</p>
+     </div>
+
+     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var errores = urlParams.get('error');
+            if (errores) {
+                alert("Error: " + errores);
+            }
+        });
+     </script>
+
+
+</body>
+</html>

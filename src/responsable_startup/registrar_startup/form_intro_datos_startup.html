@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupBoost</title>
+    <link rel="stylesheet" href="/../../../styles.css">
+
+</head>
+<body>
+    <h1>Formulario registro startup</h1>
+    <hr class="hr5">
+    <form action="alta_startup.php" method="post"
+        display="flex"
+        >
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+
+        <label for="sector">Sector</label>
+        <input type="text" name="sector" id="sector">
+
+        <label for="descripcion">Descripción</label>
+        <input type="text" name="descripcion" id="descripcion">
+
+        <label for="correo">Correo</label>
+        <input type="text" name="correo" id="correo">
+
+        <label for="telefono">Teléfono</label>
+        <input type="text" name="telefono" id="telefono">
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var errores = urlParams.get('error');
+            if (errores) {
+                alert("Error: " + errores);
+            }
+        });
+    </script>
+
+</body>
+</html>
